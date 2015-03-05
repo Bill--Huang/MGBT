@@ -55,7 +55,7 @@
         
         appSocketBroker.on('onSetupSessionFileSystem', function() {
             freezeTimeSessionId = "MGBT-" + new Date().getTime();
-            sessionDirPath = "./sessions/raw/" + freezeTimeSessionId;
+            sessionDirPath = "./sessions/raw-img/" + freezeTimeSessionId;
             return fsLib.mkdirSync(sessionDirPath);
         });
 
