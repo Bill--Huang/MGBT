@@ -13,7 +13,7 @@ module.exports = new Class({
 
     convertImageToMP4: function(imgFileName) {
 
-    	var imgPathName = "./sessions/raw-img/" + imgFileName + "/frame-%03d.jpg";
+    	var imgPathName = "./sessions/input-img/" + imgFileName + "/frame-%03d.jpg";
     	var videoPathName = "./sessions/output-video/video-" + imgFileName + ".mp4";
 
     	this.ffmpegCommand = this.ffmpeg(imgPathName)
