@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PicTakerActivity"
+    android:orientation="vertical"
+    android:id="@+id/picTakerMainLinearLayout">
+
+    <RelativeLayout
+            android:id="@+id/registerStepContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/control_box_background"
+            android:layout_margin="5dp">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_frame_button_text"
+                android:id="@+id/picRegisterButton"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
+
+        <EditText
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/serverAddrEditText"
+                android:selectAllOnFocus="false"
+                android:layout_above="@+id/picRegisterButton"
+                android:layout_centerHorizontal="true"
+                android:text="192.168.0.1"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/submitOrderStepContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/control_box_background"
+            android:layout_margin="5dp">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit_frame_order_button_text"
+                android:id="@+id/submitPicOrderButton"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:enabled="false"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/readyStepContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/control_box_background"
+            android:layout_margin="5dp"
+        android:padding="10dp">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ready_button_text"
+                android:id="@+id/picReadyButton"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:singleLine="false"
+                android:enabled="false"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/framePreviewImageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</LinearLayout>

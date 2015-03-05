@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MGBT</string>
+    <string name="start_master_lalbel">Start Master</string>
+    <string name="start_pictaker_label">Start PicTaker</string>
+    <string name="title_activity_system_master">MGBT Master</string>
+    <string name="title_activity_pic_taker">MGBT PicTaker</string>
+    <string name="server_connect_error_message">Couldn\'t connect to MGBT server. Please check IP address.</string>
+    <string name="init_ordering_label">Init Ordering</string>
+    <string name="freeze_time_button_text">Freeze Time!</string>
+    <string name="register_button_text">Register</string>
+    <string name="register_frame_button_text">Register PicTaker</string>
+    <string name="submit_frame_order_button_text">Submit Pic Order</string>
+    <string name="ready_button_text">Ready!</string>
+    <string name="setISO_button_text">ISO</string>
+    <string name="reset_system_button_text">Reset System</string>
+
+</resources>

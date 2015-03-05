@@ -1,0 +1,3 @@
+## Folder Explanation
+
+The sessions folder is where the web/socket server stores all of the frame pic images each time you generate a series of frames. Each new session will create a folder of the format "FT3D-(Date/Time Stamp)." All of the frames will be uploaded into that directory and thumbnails generated there as well. These folders are where you should grab the images for compilation into a movie.
