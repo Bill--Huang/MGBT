@@ -130,18 +130,19 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
     void submitPicOrder() {
 
         _picTakerService.submitOrder();
+
     }
 
-    @OnClick(R.id.picReadyButton)
-    void picTakerReady() {
-        _picTakerService.submitReady(_picFrameNumber);
-
-        _registerStepContainer.setVisibility(View.GONE);
-        _submitOrderStepContainer.setVisibility(View.GONE);
-        _readyStepContainer.setVisibility(View.GONE);
-
-        initializeCamera();
-    }
+//    @OnClick(R.id.picReadyButton)
+//    void picTakerReady() {
+//        _picTakerService.submitReady(_picFrameNumber);
+//
+//        _registerStepContainer.setVisibility(View.GONE);
+//        _submitOrderStepContainer.setVisibility(View.GONE);
+//        _readyStepContainer.setVisibility(View.GONE);
+//
+//        initializeCamera();
+//    }
 
     /**
      * Setup the camera and preview that will show while grabbing the frame
@@ -173,7 +174,7 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
      * update the UI this particular app instance's frame
      */
     private Camera.PictureCallback _pictureCallback = new Camera.PictureCallback() {
-        @Overrideœ
+        @Override
         public void onPictureTaken(byte[] bytes, Camera camera) {
             _capturedImageBytes = bytes;
             String fileName = "MGBT_" + _picFrameNumber + "_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()).toString() + ".jpg";
@@ -204,6 +205,10 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
             uploadReturn.setCallback(new FutureCallback<String>() {
                 @Override
                 public void onCompleted(Exception e, String s) {
+
+                    // do not release camera
+
+
                     if (_uploadingDialog != null) {
                         _uploadingDialog.cancel();
                     }
@@ -221,6 +226,15 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
                     _framePreviewImageView.setImageBitmap(BitmapFactory.decodeByteArray(_capturedImageBytes, 0, _capturedImageBytes.length));
                     _framePreviewImageView.setVisibility(View.VISIBLE);
                     _picReadyButton.setVisibility(View.GONE);
+
+
+                    //
+                    _registerStepContainer.setVisibility(View.GONE);
+                    _submitOrderStepContainer.setVisibility(View.GONE);
+                    _readyStepContainer.setVisibility(View.GONE);
+
+                    initializeCamera();
+
                 }
             });
 
@@ -280,6 +294,16 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
 
             _submitPicOrderButton.setText("Frame Number: " + _picFrameNumber);
             _submitPicOrderButton.setEnabled(false);
+
+            // After response from server, set up camera, and send message "ready" back to server
+            _picTakerService.submitReady(_picFrameNumber);
+
+            _registerStepContainer.setVisibility(View.GONE);
+            _submitOrderStepContainer.setVisibility(View.GONE);
+            _readyStepContainer.setVisibility(View.GONE);
+
+            initializeCamera();
+
         } else if (message.equals(BuildConfig.pic_takeFramePic)) {
             if (_systemCamera != null) {
                 _systemCamera.takePicture(null, null, _pictureCallback);

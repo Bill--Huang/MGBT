@@ -29,7 +29,7 @@
                 android:selectAllOnFocus="false"
                 android:layout_above="@+id/picRegisterButton"
                 android:layout_centerHorizontal="true"
-                android:text="192.168.0.1"/>
+                android:text="@string/debug_ip_address"/>
     </RelativeLayout>
     <RelativeLayout
             android:id="@+id/submitOrderStepContainer"

@@ -56,6 +56,10 @@
         appSocketBroker.on('onSetupSessionFileSystem', function() {
             freezeTimeSessionId = "MGBT-" + new Date().getTime();
             sessionDirPath = "./sessions/input-img/" + freezeTimeSessionId;
+
+            console.log("\n [Server Log] ->");
+            console.log(":::Server::: Set up a New File Folder For New Round: " + sessionDirPath);
+
             return fsLib.mkdirSync(sessionDirPath);
         });
 
