@@ -41,9 +41,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         // set camera attribute
         _camera.setDisplayOrientation(90);
         Camera.Parameters params = _camera.getParameters();
-        params.setPictureSize(2560, 1920);  //This is 5mp
+        params.setPictureSize(1280, 760);
+//        params.setPictureSize(2560, 1920);  //This is 5mp
         params.setPictureFormat(PixelFormat.JPEG);
-        params.setJpegQuality(85);
+        params.setJpegQuality(50);
         params.set("iso", "ISO800");
         params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
 

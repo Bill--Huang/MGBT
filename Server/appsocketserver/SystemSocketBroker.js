@@ -180,7 +180,20 @@ module.exports = new Class({
 
             // Convert into video
             this.mediaFactory.convertImageToMP4(freezeTimeSessionId);
+
+            // set new file path for new img
+            this.messageEmitter.emit("onSetupSessionFileSystem");
+
+            // send ServerProcessedPicResponse to master
+            // console.log("\n [Debug Log] ->");
+            // console.log(":::Server::: Send \"serverProcessedPicResponse\" message to master");
+            // console.log(this.socketMessages);
+            this.sendAppSocketMessage(this.masterSocket, this.socketMessages.masterMessages.serverProcessedPicResponse);
+
+            
         }
+
+
     },
 
 

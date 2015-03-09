@@ -18,6 +18,8 @@ module.exports = new Class({
 
     	this.ffmpegCommand = this.ffmpeg(imgPathName)
     		.on('end', function() {
+
+
 	    		console.log("\n [Server Log] ->");
 	    		console.log(":::Server::: Conversion Finished");
 	    		console.log(":::Server::: Path: " + videoPathName);
