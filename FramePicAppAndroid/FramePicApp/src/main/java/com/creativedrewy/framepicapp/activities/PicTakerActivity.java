@@ -70,9 +70,6 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
     private ProgressDialog _uploadingDialog;
     private byte[] _capturedImageBytes;
 
-//    private RelativeLayout _cameraAttrButtonContainer;
-//    private Button _toggleCameraAttrsButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,8 +88,6 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
         if (!ipString.equals("")) {
             _serverAddrEditText.setText(ipString);
         }
-
-//        initializeCamera();
     }
 
     @Override
@@ -130,7 +125,6 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
     void submitPicOrder() {
 
         _picTakerService.submitOrder();
-
     }
 
 //    @OnClick(R.id.picReadyButton)
@@ -158,11 +152,8 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
 
             _mainLayout.addView(_cameraPreviewWindow);
 
-            // Add Button View
-//            View controlView = View.inflate(this, R.layout.takepicture_activity_layout, null);
-//            _mainLayout.addView(controlView);
-//            Log.d("TTT", "ddddddddddddddddd");
-
+            // TODO: Add Button View
+            //
 
         } catch (Exception ex) {
             Toast.makeText(this, "Could not init camera. Will not capture frame.", Toast.LENGTH_LONG).show();
@@ -170,8 +161,8 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
     }
 
     /**
-     * After the picture has been taken, save it to user's device, upload to MGBT server, and
-     * update the UI this particular app instance's frame
+     * After the picture has been taken, save it to user's device, upload to MGBT server,
+     * and keep camera alive for next shooting
      */
     private Camera.PictureCallback _pictureCallback = new Camera.PictureCallback() {
         @Override
@@ -206,9 +197,7 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
                 @Override
                 public void onCompleted(Exception e, String s) {
 
-                    // do not release camera
-
-
+                    // Reset camera for next
                     if (_uploadingDialog != null) {
                         _uploadingDialog.cancel();
                     }
@@ -218,23 +207,7 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
                     }
 
                     _mainLayout.removeView(_cameraPreviewWindow);
-
-                    _registerStepContainer.setVisibility(View.VISIBLE);
-                    _submitOrderStepContainer.setVisibility(View.VISIBLE);
-                    _readyStepContainer.setVisibility(View.VISIBLE);
-
-                    _framePreviewImageView.setImageBitmap(BitmapFactory.decodeByteArray(_capturedImageBytes, 0, _capturedImageBytes.length));
-                    _framePreviewImageView.setVisibility(View.VISIBLE);
-                    _picReadyButton.setVisibility(View.GONE);
-
-
-                    //
-                    _registerStepContainer.setVisibility(View.GONE);
-                    _submitOrderStepContainer.setVisibility(View.GONE);
-                    _readyStepContainer.setVisibility(View.GONE);
-
                     initializeCamera();
-
                 }
             });
 

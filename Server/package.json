@@ -1,6 +1,6 @@
 {
-    "name": "MGDBulletTime_Server",
-    "version": "0.1.0",
+    "name": "MiugoBulletTime_Server",
+    "version": "0.1.1",
     "author": "Miugo Digital",
     "description": "Socket server and website for system",
     "keywords": [ ],

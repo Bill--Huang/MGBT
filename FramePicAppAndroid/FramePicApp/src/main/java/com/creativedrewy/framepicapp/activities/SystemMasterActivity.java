@@ -79,7 +79,7 @@ public class SystemMasterActivity extends Activity implements IServerMessageHand
     void onInitOrderingClick() {
         _masterModel.sendInitOrder();
 
-        _initOrderingButton.setText("Ordering...");
+        _initOrderingButton.setText("Ordering");
         _initOrderingButton.setEnabled(false);
     }
 
@@ -93,6 +93,7 @@ public class SystemMasterActivity extends Activity implements IServerMessageHand
 
     @OnClick(R.id.resetSystemButton)
     void onResetSystemClick() {
+
         resetFreezeOperation();
     }
 
@@ -147,7 +148,7 @@ public class SystemMasterActivity extends Activity implements IServerMessageHand
             }
         } else if (message.equals(BuildConfig.master_serverProcessedPicResponse)) {
             // Server got all pic, and convert them into video
-            // Re active "Freeze Time" Button
+            // Re-active "Bullet Time" Button
             _freezeTimeButton.setText(getString(R.string.freeze_time_button_text));
             _freezeTimeButton.setEnabled(true);
         }

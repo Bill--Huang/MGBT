@@ -2,6 +2,7 @@
  * Class that convert images into mp4 video.
  * use fluent-ffmpeg module
  */
+ 
 module.exports = new Class({
 	ffmpeg: null,
 	ffmpegCommand: null,
