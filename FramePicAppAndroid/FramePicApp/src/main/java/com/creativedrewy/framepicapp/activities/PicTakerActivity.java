@@ -37,6 +37,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -69,6 +72,8 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
     private CameraPreview _cameraPreviewWindow;
     private ProgressDialog _uploadingDialog;
     private byte[] _capturedImageBytes;
+
+    private  Timer picTakenTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -278,11 +283,34 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
             initializeCamera();
 
         } else if (message.equals(BuildConfig.pic_takeFramePic)) {
-            if (_systemCamera != null) {
-                _systemCamera.takePicture(null, null, _pictureCallback);
-            }
+
+            // set up timer
+            this.setupPicTakenTimer(Long.parseLong(payload));
+
         } else if (message.equals(BuildConfig.pic_resetPicTaker)) {
             resetPicTaker();
         }
+    }
+
+    private  void setupPicTakenTimer(long delayTime) {
+//        if (this.picTakenTimer == null) {
+//            this.picTakenTimer = new Timer();
+//        } else {
+//            this.picTakenTimer.cancel();
+//        }
+
+
+        this.picTakenTimer = new Timer();
+
+        Log.d("DG_DEBUG", "pic will be taken in " + delayTime);
+        this.picTakenTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Log.d("DG_DEBUG", "pic have been taken in " + delayTime);
+                if (_systemCamera != null) {
+                    _systemCamera.takePicture(null, null, _pictureCallback);
+                }
+            }
+        }, delayTime);
     }
 }

@@ -47,7 +47,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         params.setJpegQuality(50);
         params.set("iso", "ISO800");
         params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
-
+        params.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
         // Test
 //        params.setAutoExposureLock(true);
 //        params.setAutoWhiteBalanceLock(true);
