@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -70,6 +71,7 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
     private SharedPreferences _appPrefs;
     private Camera _systemCamera = null;
     private CameraPreview _cameraPreviewWindow;
+    private FrameLayout _cameraFrameView;
     private ProgressDialog _uploadingDialog;
     private byte[] _capturedImageBytes;
 
@@ -93,6 +95,11 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
         if (!ipString.equals("")) {
             _serverAddrEditText.setText(ipString);
         }
+
+        _registerStepContainer.setVisibility(View.GONE);
+        _submitOrderStepContainer.setVisibility(View.GONE);
+        _readyStepContainer.setVisibility(View.GONE);
+        initializeCamera();
     }
 
     @Override
@@ -151,14 +158,26 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
             _systemCamera = Camera.open();
             _cameraPreviewWindow = new CameraPreview(this, _systemCamera);
 
-            //LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             _cameraPreviewWindow.setLayoutParams(layoutParams);
 
-            _mainLayout.addView(_cameraPreviewWindow);
+            Button testButton = new Button(this);
+            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            testButton.setLayoutParams(lp);
+            testButton.setText("this is a test");
+            testButton.setOnClickListener((View v) -> {
+                Toast.makeText(getApplicationContext(), "this is a test", Toast.LENGTH_SHORT).show();
+            });
 
-            // TODO: Add Button View
-            //
+            _cameraFrameView = new FrameLayout(this);
+            FrameLayout testFrame = new FrameLayout(this);
+            _cameraFrameView.setLayoutParams(layoutParams);
+            _cameraFrameView.addView(_cameraPreviewWindow);
+            _cameraFrameView.addView(testButton);
+
+            _mainLayout.addView(testFrame);
+            //_mainLayout.addView(_cameraPreviewWindow);
 
         } catch (Exception ex) {
             Toast.makeText(this, "Could not init camera. Will not capture frame.", Toast.LENGTH_LONG).show();
@@ -211,7 +230,8 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
                         _systemCamera.release();
                     }
 
-                    _mainLayout.removeView(_cameraPreviewWindow);
+                    _mainLayout.removeView(_cameraFrameView);
+                    //_mainLayout.removeView(_cameraPreviewWindow);
                     initializeCamera();
                 }
             });

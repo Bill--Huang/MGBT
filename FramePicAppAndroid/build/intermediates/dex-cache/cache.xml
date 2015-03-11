@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/huangzebiao/.gradle/caches/modules-2/files-2.1/com.netflix.rxjava/rxjava-core/0.20.5/157a2c110cc27a6c3979dc1744d391d540eb9ba1/rxjava-core-0.20.5.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="157a2c110cc27a6c3979dc1744d391d540eb9ba1">
-        <dex dex="/Users/huangzebiao/Documents/File/Development/FreezeTime3D/FramePicAppAndroid/FramePicApp/build/intermediates/pre-dexed/debug/rxjava-core-0.20.5-dc67bd2353bb3c94970900405883da3223e2849e.jar" />
-    </item>
-    <item
-        jar="/Users/huangzebiao/.gradle/caches/modules-2/files-2.1/com.netflix.rxjava/rxjava-android/0.20.5/ba01e375eb953a682dde8c903db6ae19093de7c/rxjava-android-0.20.5.jar"
+        jar="C:\Users\miuz\.gradle\caches\modules-2\files-2.1\com.netflix.rxjava\rxjava-android\0.20.5\ba01e375eb953a682dde8c903db6ae19093de7c\rxjava-android-0.20.5.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="0ba01e375eb953a682dde8c903db6ae19093de7c">
-        <dex dex="/Users/huangzebiao/Documents/File/Development/FreezeTime3D/FramePicAppAndroid/FramePicApp/build/intermediates/pre-dexed/debug/rxjava-android-0.20.5-29460c61bb1080c5867d6e6084356706a21f3b63.jar" />
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\rxjava-android-0.20.5-4e0f5f6476d86878713e1a4549a35a838b3c77ce.jar" />
     </item>
     <item
-        jar="/Users/huangzebiao/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.0.0/3a10b25b6820e19102e118711afe6a66c0bae123/butterknife-6.0.0.jar"
+        jar="C:\Users\miuz\.gradle\caches\modules-2\files-2.1\com.netflix.rxjava\rxjava-core\0.20.5\157a2c110cc27a6c3979dc1744d391d540eb9ba1\rxjava-core-0.20.5.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
-        <dex dex="/Users/huangzebiao/Documents/File/Development/FreezeTime3D/FramePicAppAndroid/FramePicApp/build/intermediates/pre-dexed/debug/butterknife-6.0.0-617b1a42cc55f76918313b3349b86045a9233cfa.jar" />
+        sha1="157a2c110cc27a6c3979dc1744d391d540eb9ba1">
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\rxjava-core-0.20.5-138eeca0dfbf8154b8b5dfa1d8fa124878f258fb.jar" />
     </item>
     <item
-        jar="/Users/huangzebiao/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/1.1.6/7ed2f65ce1d88cc22be93ca60178d18728a28b55/androidasync-1.1.6.jar"
+        jar="C:\Users\miuz\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\1.1.6\7ed2f65ce1d88cc22be93ca60178d18728a28b55\androidasync-1.1.6.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="7ed2f65ce1d88cc22be93ca60178d18728a28b55">
-        <dex dex="/Users/huangzebiao/Documents/File/Development/FreezeTime3D/FramePicAppAndroid/FramePicApp/build/intermediates/pre-dexed/debug/androidasync-1.1.6-cd539ad01bb03997d303e7c6b4c8d2b13f16c0f3.jar" />
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\androidasync-1.1.6-a5067bb1a46af61df1f6090c2415b85a0ede5f08.jar" />
+    </item>
+    <item
+        jar="C:\Users\miuz\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\butterknife-6.0.0-74cd23b0f3425ac35259bc4f7941b4527e322f2b.jar" />
     </item>
 
 </items>
