@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\miuz\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-6d48750cc48b51a5d3c77322429c1e9479cd3aba.jar" />
+    </item>
+    <item
+        jar="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\classes-6829818541e61a498d466754a69700c3ebd358d4.jar" />
+    </item>
+    <item
         jar="C:\Users\miuz\.gradle\caches\modules-2\files-2.1\com.netflix.rxjava\rxjava-android\0.20.5\ba01e375eb953a682dde8c903db6ae19093de7c\rxjava-android-0.20.5.jar"
         jumboMode="false"
         revision="21.1.1"
@@ -16,6 +30,13 @@
         <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\rxjava-core-0.20.5-138eeca0dfbf8154b8b5dfa1d8fa124878f258fb.jar" />
     </item>
     <item
+        jar="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-63f5f6d1faf9b77ead7dfb256d8c4c57dd5a16e9.jar" />
+    </item>
+    <item
         jar="C:\Users\miuz\.gradle\caches\modules-2\files-2.1\com.koushikdutta.async\androidasync\1.1.6\7ed2f65ce1d88cc22be93ca60178d18728a28b55\androidasync-1.1.6.jar"
         jumboMode="false"
         revision="21.1.1"
@@ -28,6 +49,13 @@
         revision="21.1.1"
         sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
         <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\butterknife-6.0.0-74cd23b0f3425ac35259bc4f7941b4527e322f2b.jar" />
+    </item>
+    <item
+        jar="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="D:\MGBT\FramePicAppAndroid\FramePicApp\build\intermediates\pre-dexed\debug\classes-bc4e5a60c0ff03e5d5d0d764b3330756fe2fa5bd.jar" />
     </item>
 
 </items>

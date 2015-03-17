@@ -8,6 +8,8 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Environment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.creativedrewy.framepicapp.BuildConfig;
@@ -30,6 +33,8 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.async.http.AsyncHttpClient;
 import com.koushikdutta.async.http.AsyncHttpPost;
 import com.koushikdutta.async.http.MultipartFormDataBody;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -66,12 +71,20 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
 
     @InjectView(R.id.framePreviewImageView) protected ImageView _framePreviewImageView;
 
+    // camera config
+    private TextView cameraViewAim0;
+    private TextView cameraViewAim1;
+    private TextView delayText;
+    private EditText delayEditText;
+    private Boolean isHide;
+
     private PicTakerService _picTakerService;
     private int _picFrameNumber = -1;
     private SharedPreferences _appPrefs;
     private Camera _systemCamera = null;
     private CameraPreview _cameraPreviewWindow;
     private FrameLayout _cameraFrameView;
+    private FrameLayout _cameraConfigLayout;
     private ProgressDialog _uploadingDialog;
     private byte[] _capturedImageBytes;
 
@@ -162,6 +175,7 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
             //RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             _cameraPreviewWindow.setLayoutParams(layoutParams);
 
+            /*
             Button testButton = new Button(this);
             ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             testButton.setLayoutParams(lp);
@@ -169,19 +183,58 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
             testButton.setOnClickListener((View v) -> {
                 Toast.makeText(getApplicationContext(), "this is a test", Toast.LENGTH_SHORT).show();
             });
+            */
+
+            _cameraConfigLayout = (FrameLayout) FrameLayout.inflate(this, R.layout.camera_view_layout, null);
+            initCameraConfigView();
 
             _cameraFrameView = new FrameLayout(this);
-            FrameLayout testFrame = new FrameLayout(this);
             _cameraFrameView.setLayoutParams(layoutParams);
             _cameraFrameView.addView(_cameraPreviewWindow);
-            _cameraFrameView.addView(testButton);
+            _cameraFrameView.addView(_cameraConfigLayout);
 
-            _mainLayout.addView(testFrame);
+            _mainLayout.addView(_cameraFrameView);
             //_mainLayout.addView(_cameraPreviewWindow);
 
         } catch (Exception ex) {
             Toast.makeText(this, "Could not init camera. Will not capture frame.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void initCameraConfigView() {
+        cameraViewAim0 = (TextView) _cameraConfigLayout.findViewById(R.id.camera_view_aim_0);
+        cameraViewAim1 = (TextView) _cameraConfigLayout.findViewById(R.id.camera_view_aim_1);
+        delayText = (TextView) _cameraConfigLayout.findViewById(R.id.camera_view_text_delay);
+        delayEditText = (EditText) _cameraConfigLayout.findViewById(R.id.camera_view_edit_delay);
+        isHide = false;
+
+        _cameraConfigLayout.findViewById(R.id.camera_view_config).setOnClickListener((View v) -> {
+            if (isHide) {
+                toggleConfigState(View.VISIBLE);
+            } else {
+                toggleConfigState(View.INVISIBLE);
+            }
+        });
+
+        delayEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Toast.makeText(getApplicationContext(), "delay time has been modified", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void toggleConfigState(int status) {
+        cameraViewAim0.setVisibility(status);
+        cameraViewAim1.setVisibility(status);
+        delayEditText.setVisibility(status);
+        delayText.setVisibility(status);
+        isHide = isHide ? false : true;
     }
 
     /**
