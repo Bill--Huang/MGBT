@@ -15,7 +15,7 @@
     <string name="ready_button_text">Ready!</string>
     <string name="setISO_button_text">ISO</string>
     <string name="reset_system_button_text">Reset System</string>
-    <string name="debug_ip_address">192.168.1.107</string>
+    <string name="debug_ip_address">192.168.31.218</string>
 
     <string name="camera_view_config">选项设置</string>
     <string name="camera_view_delay">延迟拍摄时间</string>

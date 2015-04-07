@@ -109,10 +109,10 @@ public class PicTakerActivity extends Activity implements IServerMessageHandler 
             _serverAddrEditText.setText(ipString);
         }
 
-        _registerStepContainer.setVisibility(View.GONE);
-        _submitOrderStepContainer.setVisibility(View.GONE);
-        _readyStepContainer.setVisibility(View.GONE);
-        initializeCamera();
+//        _registerStepContainer.setVisibility(View.GONE);
+//        _submitOrderStepContainer.setVisibility(View.GONE);
+//        _readyStepContainer.setVisibility(View.GONE);
+//        initializeCamera();
     }
 
     @Override

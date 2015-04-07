@@ -81,7 +81,7 @@ module.exports = new Class({
 
                 // TODO: Set a certain time and make all devices taking pic in the same time
                 // no use a For loop
-
+                
                 console.log(":::Master::: Frame capturing beginning - get ready to freeze time!");
                 for (var i = 0; i < this.currentFrameNumber; i++) {
                     var currentSocketInOrder = this.orderedSockets[i];

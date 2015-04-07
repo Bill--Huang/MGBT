@@ -17,9 +17,12 @@ module.exports = new Class({
     	var imgPathName = "./sessions/input-img/" + imgFileName + "/frame-%03d.jpg";
     	var videoPathName = "./sessions/output-video/video-" + imgFileName + ".mp4";
 
+    	//
     	this.ffmpegCommand = this.ffmpeg(imgPathName)
+    		.withInputFPS(2)
+			.withOutputFPS(2)
+			.noAudio()
     		.on('end', function() {
-
 
 	    		console.log("\n [Server Log] ->");
 	    		console.log(":::Server::: Conversion Finished");

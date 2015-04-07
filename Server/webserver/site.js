@@ -34,7 +34,7 @@
         this.on({'idClientConnection': function() {
             return appSocketBroker.websiteMessagingSocket = this.socket;
         }});
-
+        
         /**
          * This is the main event that app instances use to communicate with this socket server. We pass
          * off all message handling to the SystemSocketBroker instance.
