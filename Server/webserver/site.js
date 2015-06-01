@@ -94,7 +94,7 @@
 
         /**
          * Website page view
-         */     
+         */
         this.view({
             index: function() {}
         });
